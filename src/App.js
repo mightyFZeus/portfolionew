@@ -1,5 +1,5 @@
 import "./App.css";
-import FadeInWhenVisible from "./components/FadeInWhenVisible";
+// import FadeInWhenVisible from "./components/FadeInWhenVisible";
 
 
 import NavigationBar from "./components/NavigationBar";
