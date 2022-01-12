@@ -7,7 +7,7 @@ import CallToActionSection from "./sections/CallToActionSection";
 
 function App() {
     return (
-        <div className="app lg:px-32 px-10 py-10">
+        <div className="app lg:px-32 px-6 py-10">
             <NavigationBar />
             <CallToActionSection />
           

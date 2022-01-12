@@ -23,7 +23,7 @@ const CallToActionSection = () => {
     const { name, description, role1, role2 } = callToActionText;
     return (
         <div>
-            <motion.div className="mt-40  lg:flex justify-between ">
+            <motion.div className="lg:mt-40 mt-16  lg:flex justify-between ">
                 <motion.div
                 
                 >
