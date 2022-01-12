@@ -6,14 +6,7 @@ import PrimaryButton from '../components/PrimaryButton'
 
 const stack1 = ["Git",  "CSS","HTML", "Gsap",  "ReactJs",];
 
-const favorite = [
-    "Javascript",
-    "ReactJs",
-    "Tailwind CSS",
-    "React Native",
-    
-    "Framer Motion",
-]
+
 const stack2 = [
     "Tailwind CSS",
     "Typescript",
