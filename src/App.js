@@ -1,4 +1,5 @@
 import "./App.css";
+import FadeInWhenVisible from "./components/FadeInWhenVisible";
 
 
 import NavigationBar from "./components/NavigationBar";
@@ -10,10 +11,8 @@ function App() {
         <div className="app lg:px-32 px-6 py-10">
             <NavigationBar />
             <CallToActionSection />
-          
+
                 <AboutSection />
-            
-           
         </div>
     );
 }

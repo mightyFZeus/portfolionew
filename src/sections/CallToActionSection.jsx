@@ -24,13 +24,11 @@ const CallToActionSection = () => {
     return (
         <div>
             <motion.div className="lg:mt-40 mt-16  lg:flex justify-between ">
-                <motion.div
-                
-                >
+                <motion.div>
                     <motion.p
-                        animate={{  opacity: 1,  transformOrigin:"center" }}
-                        initial={{ y: 0, opacity: 0,  }}
-                        transition={{ duration: 1, yoyo:Infinity }}
+                        animate={{ opacity: 1, transformOrigin: "center" }}
+                        initial={{ y: 0, opacity: 0 }}
+                        transition={{ duration: 1, yoyo: Infinity }}
                         className="font-bold text-2xl"
                     >
                         {name}
@@ -65,7 +63,13 @@ const CallToActionSection = () => {
                         animate="visible"
                         variants={variant}
                     >
-                        <PrimaryButton text="Hire Me" />
+                        <motion.div
+                            animate={{ x:10  }}
+                            initial={{ x: 0,  }}
+                            transition={{ duration: 1, yoyo: Infinity }}
+                        >
+                            <PrimaryButton text="Hire Me" />
+                        </motion.div>
                     </motion.div>
                 </motion.div>
                 <div>
@@ -81,7 +85,7 @@ const CallToActionSection = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         className="hidden xl:inline-block"
                     >
-                        <g clip-path="url(#clip0_210_27)">
+                        <g clipPath="url(#clip0_210_27)">
                             <path
                                 d="M335.718 555.498L335.688 607.569L272.846 591.812V534.36"
                                 fill="#FC7272"
@@ -110,8 +114,8 @@ const CallToActionSection = () => {
                                 d="M251.051 344.661H175.99C175.99 344.661 230.57 375.377 239.784 429.124C269.052 427.675 277.576 429.124 277.576 429.124L281.756 344.995L251.051 344.661Z"
                                 fill="black"
                                 stroke="black"
-                                stroke-width="1.08402"
-                                stroke-miterlimit="10"
+                                strokeWidth="1.08402"
+                                strokeMiterlimit="10"
                             />
                             <path
                                 d="M133.09 546.284H213.147C216.484 546.284 219.188 548.989 219.188 552.325V565.175C219.188 568.511 216.484 571.216 213.147 571.216H133.09C129.753 571.216 127.049 568.511 127.049 565.175V552.325C127.049 548.989 129.753 546.284 133.09 546.284Z"
@@ -416,12 +420,6 @@ const CallToActionSection = () => {
                     `
                 </div>
             </motion.div>
-            <motion.div
-                animate={{ y: -70, opacity: 1 }}
-                initial={{ y: 0, opacity: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-                className="h-16 w-full bg-textBlack hidden xl:inline-block"
-            />
         </div>
     );
 };

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import aboutImg from "../images/about.svg"
-import {motion} from "framer-motion"
+import {motion, useAnimation} from "framer-motion"
 import { aboutSectionText } from '../utils/constants'
 import PrimaryButton from '../components/PrimaryButton'
+import { useInView } from 'react-intersection-observer'
 
 const stack1 = ["Git",  "CSS","HTML", "Gsap",  "ReactJs",];
 
@@ -17,19 +18,46 @@ const stack2 = [
     "React Testing Library",
 ];
 const AboutSection = () => {
+     const controls = useAnimation();
+     const [ref, inView] = useInView();
+
+     useEffect(() => {
+         if (inView) {
+             controls.start("visible");
+         }
+         if (!inView) {
+             controls.start("hidden");
+         }
+     }, [controls, inView]);
+  
     const {about} = aboutSectionText
     return (
-        <div className="mt-10">
+        <motion.div className="mt-10">
             <img src={aboutImg} alt="about" className="mb-10" />
             <div className="flex">
-                <div>
+                <motion.div
+                    ref={ref}
+                    animate={controls}
+                    initial="hidden"
+                    variants={{
+                        visible: {
+                            y: 0,
+                            transition: {
+                                duration: 1,
+                                ease: "easeInOut",
+                                bounce: 1,
+                            },
+                        },
+                        hidden: { y: 20 },
+                    }}
+                >
                     <p className="text-textGray leading-9  text-sm lg:w-11/12">
                         {about}
                     </p>
                     <div className="mt-4">
                         <PrimaryButton text="View my Resume" />
                     </div>
-                </div>
+                </motion.div>
                 <div className="hidden lg:inline-block">
                     <div className="border-t-4 border-textBlack w-14" />
                     <p className="text-textBlack text-xl ">My Stack</p>
@@ -37,9 +65,27 @@ const AboutSection = () => {
                         {stack1.map((item, index) => (
                             <motion.div
                                 key={index}
-                                animate={{ y: 30, opacity: 1 }}
-                                initial={{ y: "-100%", opacity: 0 }}
-                                transition={{ duration: 1, delay: 1.1 }}
+                                ref={ref}
+                                animate={controls}
+                                initial="hidden"
+                                variants={{
+                                    visible: {
+                                        opacity: 1,
+                                        translateX: 0,
+                                        translateY: 0,
+                                        transition: {
+                                            duration: 1,
+                                            ease: "easeInOut",
+                                            bounce: 1,
+                                            delay: index * 0.5,
+                                        },
+                                    },
+                                    hidden: {
+                                        opacity: 0,
+                                        translateY: -50,
+                                        translateX: -50,
+                                    },
+                                }}
                                 className="my-3"
                             >
                                 <PrimaryButton text={item} />
@@ -50,9 +96,27 @@ const AboutSection = () => {
                         {stack2.map((item, index) => (
                             <motion.div
                                 key={index}
-                                animate={{ y: 20, opacity: 1 }}
-                                initial={{ y: "-100%", opacity: 0 }}
-                                transition={{ duration: 1, delay: 1.1 }}
+                                ref={ref}
+                                animate={controls}
+                                initial="hidden"
+                                variants={{
+                                    visible: {
+                                        opacity: 1,
+                                        translateX: 0,
+                                        translateY: 0,
+                                        transition: {
+                                            duration: 1,
+                                            ease: "easeInOut",
+                                            bounce: 1,
+                                            delay: index * 0.5,
+                                        },
+                                    },
+                                    hidden: {
+                                        opacity: 0,
+                                        translateY: 50,
+                                        translateX: 50,
+                                    },
+                                }}
                                 className=""
                             >
                                 <PrimaryButton text={item} />
@@ -65,7 +129,7 @@ const AboutSection = () => {
             <div className="sm:hidden mt-10">
                 <div className="border-t-4 border-textBlack w-14" />
                 <p className="font-semibold text-textBlack">
-                    My Favourite Stack
+                    My Favorite Stack
                 </p>
                 <div className="mt-4 flex justify-between">
                     <div>
@@ -84,7 +148,7 @@ const AboutSection = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

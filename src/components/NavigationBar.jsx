@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import logo from "../images/logo.webp";
 import { iconBar, navigationItems } from "../utils/constants";
 import { motion } from "framer-motion";
+import MobileNavigation from './MobileNavigation'
 
 
 const NavigationBar = () => {
     const [active, setActive] = useState(null);
+    const [open, setOpen] = useState(false)
+    const toggleMenu = () => {
+        setOpen(prevOpen => !prevOpen)
+    }
 
     const navVariants = {
         hidden: {
@@ -48,6 +53,7 @@ const NavigationBar = () => {
         },
     };
 
+   
     return (
         <motion.nav
             animate="visible"
@@ -55,15 +61,37 @@ const NavigationBar = () => {
             variants={navVariants}
             className="flex justify-between items-center w-full  "
         >
-            <img src={logo} alt="logo" />
+            <motion.img
+                src={logo}
+                alt="logo"
+                onClick={toggleMenu}
+                animate={{ translateX: 0, translateY: 0 }}
+                initial={{ translateX: -50, translateY: -50 }}
+                transition={{
+                    duration: 0.8,
+                    delay:  0.2,
+                    ease: "easeInOut",
+                }}
+            />
 
             <div className=" hidden lg:flex gap-10 ">
                 {navigationItems.map((item, index) => (
                     <motion.p
                         key={index}
+                        animate={{ translateX: 0, translateY: 0 }}
+                        initial={{ translateX: -50, translateY: -50 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: index * 0.2,
+                            ease: "easeInOut",
+                        }}
                         whileHover={{
                             scale: 0.6,
                             fontStyle: "italic",
+                            transition: {
+                                ease: "easeIn",
+                                duration: 0.6,
+                            },
                         }}
                         className={
                             active === index
@@ -78,15 +106,22 @@ const NavigationBar = () => {
             </div>
             <div className="hidden lg:flex gap-10">
                 {/* github */}
-                {iconBar.map((item) => (
+                {iconBar.map((item, index) => (
                     <a href={item.link} key={item.id}>
                         <motion.svg
+                            animate={{ translateX: 0, translateY: 0 }}
+                            initial={{ translateX: -50, translateY: -50 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: index * 0.2,
+                                ease: "easeInOut",
+                            }}
                             whileHover={{
                                 scale: 1.5,
                                 rotate: 360,
                                 transformOrigin: "center",
                             }}
-                            transition={{ duration: 0.8 }}
+                            // transition={{ duration: 0.8 }}
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -99,6 +134,8 @@ const NavigationBar = () => {
                     </a>
                 ))}
             </div>
+            <div>{open && <MobileNavigation toggleMenu={toggleMenu} />}</div>
+
             {/* hamburger menu */}
             <div className="sm:hidden">
                 <motion.svg
