@@ -63,13 +63,14 @@ const CallToActionSection = () => {
                         animate="visible"
                         variants={variant}
                     >
-                        <motion.div
+                        <motion.a
+                            href="mailto:bolarinolabisi36.com"
                             animate={{ x: 10 }}
                             initial={{ x: 0 }}
                             transition={{ duration: 1, yoyo: Infinity }}
                         >
                             <PrimaryButton text="Hire Me" />
-                        </motion.div>
+                        </motion.a>
                     </motion.div>
                 </motion.div>
                 <div>
