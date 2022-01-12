@@ -32,7 +32,7 @@ const AboutSection = () => {
   
     const {about} = aboutSectionText
     return (
-        <motion.div className="mt-10">
+        <motion.div className="mt-10 lg:px-32 px-6 py-10">
             <img src={aboutImg} alt="about" className="mb-10" />
             <div className="flex">
                 <motion.div

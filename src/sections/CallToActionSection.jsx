@@ -23,7 +23,7 @@ const CallToActionSection = () => {
     const { name, description, role1, role2 } = callToActionText;
     return (
         <div>
-            <motion.div className="lg:mt-40 mt-16  lg:flex justify-between ">
+            <motion.div className="lg:mt-40 mt-16  lg:flex justify-between lg:px-32 px-6 py-10">
                 <motion.div>
                     <motion.p
                         animate={{ opacity: 1, transformOrigin: "center" }}
@@ -64,8 +64,8 @@ const CallToActionSection = () => {
                         variants={variant}
                     >
                         <motion.div
-                            animate={{ x:10  }}
-                            initial={{ x: 0,  }}
+                            animate={{ x: 10 }}
+                            initial={{ x: 0 }}
                             transition={{ duration: 1, yoyo: Infinity }}
                         >
                             <PrimaryButton text="Hire Me" />

@@ -1,5 +1,5 @@
-import "./App.css";
-// import FadeInWhenVisible from "./components/FadeInWhenVisible";
+import {useState} from 'react'
+import MobileNavigation from "./components/MobileNavigation";
 
 
 import NavigationBar from "./components/NavigationBar";
@@ -7,12 +7,22 @@ import AboutSection from "./sections/AboutSection";
 import CallToActionSection from "./sections/CallToActionSection";
 
 function App() {
-    return (
-        <div className="app lg:px-32 px-6 py-10">
-            <NavigationBar />
-            <CallToActionSection />
+   const [open, setOpen] = useState(false);
+   const toggleMenu = () => {
+       setOpen((prevOpen) => !prevOpen);
+   };
 
-                <AboutSection />
+    return (
+        <div className="app ">
+            <NavigationBar
+                open={open}
+                setOpen={setOpen}
+                toggleMenu={toggleMenu}
+            />
+            <div>{open && <MobileNavigation toggleMenu={toggleMenu} />}</div>
+            <CallToActionSection />
+          
+            <AboutSection />
         </div>
     );
 }

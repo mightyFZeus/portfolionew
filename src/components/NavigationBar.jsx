@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import logo from "../images/logo.webp";
 import { iconBar, navigationItems } from "../utils/constants";
 import { motion } from "framer-motion";
-import MobileNavigation from './MobileNavigation'
 
 
-const NavigationBar = () => {
+
+const NavigationBar = ({ toggleMenu}) => {
     const [active, setActive] = useState(null);
-    const [open, setOpen] = useState(false)
-    const toggleMenu = () => {
-        setOpen(prevOpen => !prevOpen)
-    }
-
+   
     const navVariants = {
         hidden: {
             opacity: 0,
@@ -59,19 +55,13 @@ const NavigationBar = () => {
             animate="visible"
             initial="hidden"
             variants={navVariants}
-            className="flex justify-between items-center w-full  "
+            className="flex justify-between items-center w-full  lg:px-32 px-6 py-10"
         >
-            <motion.img
+            <img
                 src={logo}
                 alt="logo"
-                onClick={toggleMenu}
-                animate={{ translateX: 0, translateY: 0 }}
-                initial={{ translateX: -50, translateY: -50 }}
-                transition={{
-                    duration: 0.8,
-                    delay:  0.2,
-                    ease: "easeInOut",
-                }}
+                className="z-1000"
+               
             />
 
             <div className=" hidden lg:flex gap-10 ">
@@ -105,7 +95,6 @@ const NavigationBar = () => {
                 ))}
             </div>
             <div className="hidden lg:flex gap-10">
-                {/* github */}
                 {iconBar.map((item, index) => (
                     <a href={item.link} key={item.id}>
                         <motion.svg
@@ -121,7 +110,7 @@ const NavigationBar = () => {
                                 rotate: 360,
                                 transformOrigin: "center",
                             }}
-                            // transition={{ duration: 0.8 }}
+                            
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -134,7 +123,6 @@ const NavigationBar = () => {
                     </a>
                 ))}
             </div>
-            <div>{open && <MobileNavigation toggleMenu={toggleMenu} />}</div>
 
             {/* hamburger menu */}
             <div className="sm:hidden">
@@ -147,6 +135,7 @@ const NavigationBar = () => {
                     variants={svgVariants}
                     animate="visible"
                     initial="hidden"
+                    onClick={toggleMenu}
                 >
                     <motion.path
                         strokeLinecap="round"
