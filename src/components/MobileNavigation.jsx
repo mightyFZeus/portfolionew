@@ -30,7 +30,7 @@ const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
     return (
         <motion.div
             animate={{ opacity: 1, x: 0, zIndex: 1000 }}
-            initial={{ opacity: 0, x: "100vw", zIndex: 0 }}
+            initial={{ opacity: 0, x: "-100vw", zIndex: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
             className=" bg-white w-full fixed top-0 left-0 right-0 bottom-0 h-screen px-6 py-10  "
         >
