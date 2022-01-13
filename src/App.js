@@ -11,6 +11,8 @@ function App() {
    const toggleMenu = () => {
        setOpen((prevOpen) => !prevOpen);
    };
+    
+    
 
     return (
         <div className="app ">

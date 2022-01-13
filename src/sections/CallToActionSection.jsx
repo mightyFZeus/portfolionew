@@ -53,7 +53,7 @@ const CallToActionSection = () => {
                         initial="hidden"
                         animate="visible"
                         variants={variant}
-                        className="text-textGray text-sm mt-6 leading-7"
+                        className="text-textGray text-sm mt-6 lg:w-3/4 leading-7"
                     >
                         {description}
                     </motion.p>

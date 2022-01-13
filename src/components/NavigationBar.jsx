@@ -57,12 +57,7 @@ const NavigationBar = ({ toggleMenu}) => {
             variants={navVariants}
             className="flex justify-between items-center w-full  lg:px-32 px-6 py-10"
         >
-            <img
-                src={logo}
-                alt="logo"
-                className="z-1000"
-               
-            />
+            <img src={logo} alt="logo" className="z-1000" />
 
             <div className=" hidden lg:flex gap-10 ">
                 {navigationItems.map((item, index) => (
@@ -76,11 +71,11 @@ const NavigationBar = ({ toggleMenu}) => {
                             ease: "easeInOut",
                         }}
                         whileHover={{
-                            scale: 0.6,
+                            scale: 1.25,
                             fontStyle: "italic",
                             transition: {
                                 ease: "easeIn",
-                                duration: 0.6,
+                                duration: 0.4,
                             },
                         }}
                         className={
@@ -96,7 +91,12 @@ const NavigationBar = ({ toggleMenu}) => {
             </div>
             <div className="hidden lg:flex gap-10">
                 {iconBar.map((item, index) => (
-                    <a href={item.link} key={item.id}>
+                    <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        key={item.id}
+                    >
                         <motion.svg
                             animate={{ translateX: 0, translateY: 0 }}
                             initial={{ translateX: -50, translateY: -50 }}
@@ -110,7 +110,6 @@ const NavigationBar = ({ toggleMenu}) => {
                                 rotate: 360,
                                 transformOrigin: "center",
                             }}
-                            
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"

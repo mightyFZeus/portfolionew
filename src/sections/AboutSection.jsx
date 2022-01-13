@@ -51,7 +51,7 @@ const AboutSection = () => {
                         hidden: { y: 20 },
                     }}
                 >
-                    <p className="text-textGray leading-9  text-sm lg:w-11/12">
+                    <p className="text-textGray leading-9  text-sm lg:w-3/4">
                         {about}
                     </p>
                     <div className="mt-4">
@@ -71,24 +71,27 @@ const AboutSection = () => {
                                 variants={{
                                     visible: {
                                         opacity: 1,
-                                        translateX: 0,
-                                        translateY: 0,
+                                        x: 0,
+                                        // translateY: 0,
                                         transition: {
                                             duration: 1,
                                             ease: "easeInOut",
-                                            bounce: 1,
-                                            delay: index * 0.5,
+                                            bounce: 0.1,
+                                            delay: index * 0.1,
+                                            type: "spring",
                                         },
                                     },
                                     hidden: {
                                         opacity: 0,
-                                        translateY: -50,
-                                        translateX: -50,
+                                        // translateY: -50,
+                                        x: "100vw",
                                     },
                                 }}
-                                className="my-3"
+                                className=""
                             >
-                                <PrimaryButton text={item} />
+                                <div className="mx-1 my-2">
+                                    <PrimaryButton text={item} />
+                                </div>
                             </motion.div>
                         ))}
                     </div>
@@ -105,10 +108,11 @@ const AboutSection = () => {
                                         translateX: 0,
                                         translateY: 0,
                                         transition: {
+                                            type: "spring",
                                             duration: 1,
                                             ease: "easeInOut",
-                                            bounce: 1,
-                                            delay: index * 0.5,
+                                            bounce: 0.1,
+                                            delay: index * 0.1,
                                         },
                                     },
                                     hidden: {
@@ -119,7 +123,9 @@ const AboutSection = () => {
                                 }}
                                 className=""
                             >
-                                <PrimaryButton text={item} />
+                                <div className="mx-1 my-2">
+                                    <PrimaryButton text={item} />
+                                </div>
                             </motion.div>
                         ))}
                     </div>
