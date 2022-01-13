@@ -75,7 +75,7 @@ const CallToActionSection = () => {
                     </motion.div>
                 </motion.div>
                 <div>
-                    `
+                    
                     <motion.svg
                         animate={{ y: -70, opacity: 1 }}
                         initial={{ y: 0, opacity: 0 }}
@@ -419,7 +419,7 @@ const CallToActionSection = () => {
                             </clipPath>
                         </defs>
                     </motion.svg>
-                    `
+                    
                 </div>
             </motion.div>
         </div>
