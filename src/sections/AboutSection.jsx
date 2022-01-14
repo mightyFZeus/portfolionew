@@ -33,7 +33,26 @@ const AboutSection = () => {
     const {about} = aboutSectionText
     return (
         <motion.div className="mt-10 ">
-            <img src={aboutImg} alt="about" className="mb-10" />
+            <motion.img
+                ref={ref}
+                animate={controls}
+                initial="hidden"
+                variants={{
+                    visible: {
+                        y: 0,
+                        // opacity:1,
+                        transition: {
+                            duration: 1,
+                            ease: "easeInOut",
+                            bounce: 1,
+                        },
+                    },
+                    hidden: { y: 20 },
+                }}
+                src={aboutImg}
+                alt="about"
+                className="mb-10"
+            />
             <div className="flex justify-between ">
                 <motion.div
                     ref={ref}
@@ -42,6 +61,7 @@ const AboutSection = () => {
                     variants={{
                         visible: {
                             y: 0,
+                            // opacity:1,
                             transition: {
                                 duration: 1,
                                 ease: "easeInOut",
@@ -51,16 +71,33 @@ const AboutSection = () => {
                         hidden: { y: 20 },
                     }}
                 >
-                    <p className="text-textGray leading-9  text-sm lg:w-3/4">
+                    <motion.p
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={{
+                            visible: {
+                                y: 0,
+                                // opacity:1,
+                                transition: {
+                                    duration: 1,
+                                    ease: "easeInOut",
+                                    bounce: 1,
+                                },
+                            },
+                            hidden: { y: 20 },
+                        }}
+                        className="text-textGray leading-9  text-sm lg:w-3/4"
+                    >
                         {about}
-                    </p>
+                    </motion.p>
                     <div className="mt-4">
                         <PrimaryButton text="View my Resume" />
                     </div>
                 </motion.div>
                 <div className="hidden lg:inline-block">
                     <div className="border-t-4 border-textBlack w-14" />
-                    <p className="text-textBlack text-xl ">My Stack</p>
+                    <p className="text-textBlack text-xl mb-4 ">My Stack</p>
                     <div className="flex  ">
                         {stack1.map((item, index) => (
                             <motion.div
@@ -71,20 +108,18 @@ const AboutSection = () => {
                                 variants={{
                                     visible: {
                                         opacity: 1,
-                                       
+
                                         // translateY: 0,
                                         transition: {
                                             duration: 1,
                                             ease: "easeInOut",
                                             bounce: 0.1,
                                             delay: index * 0.1,
-                                          
                                         },
                                     },
                                     hidden: {
                                         opacity: 0,
                                         // translateY: -50,
-                                     
                                     },
                                 }}
                                 className=" mb-1"
@@ -105,7 +140,7 @@ const AboutSection = () => {
                                 variants={{
                                     visible: {
                                         opacity: 1,
-                                     
+
                                         transition: {
                                             type: "spring",
                                             duration: 1,
@@ -116,7 +151,6 @@ const AboutSection = () => {
                                     },
                                     hidden: {
                                         opacity: 0,
-                                   
                                     },
                                 }}
                                 className=""

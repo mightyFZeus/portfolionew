@@ -76,7 +76,7 @@ const CallToActionSection = () => {
                     </motion.div>
                 </motion.div>
                 <div>
-                    <img src={guy} alt="guy" />
+                    <motion.img animate={{opacity:1}} initial={{opacity:0}} transition={{duration:3}} src={guy} alt="guy" />
                 </div>
                 <div></div>
             </motion.div>

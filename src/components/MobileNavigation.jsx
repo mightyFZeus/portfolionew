@@ -16,7 +16,7 @@ const pathVariants = {
     visible: {
         opacity: 1,
         pathLength: 1,
-        scale: 1.5,
+        scale: 1.2,
         transition: {
             duration: 2,
             ease: "easeInOut",
@@ -25,7 +25,7 @@ const pathVariants = {
     },
 };
 
-const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
+const Sidebar = ({ toggleMenu }) => {
     
     return (
         <motion.div
@@ -34,7 +34,7 @@ const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
             transition={{ duration: 1, ease: "easeInOut" }}
             className=" bg-white w-full fixed top-0 left-0 right-0 bottom-0 h-screen px-6 py-10  "
         >
-            <svg
+            <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-8 w-8 ml-auto "
                 fill="none"
@@ -45,7 +45,7 @@ const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
                 animate="visible"
                 initial="hidden"
             >
-                <path
+                <motion.path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
@@ -54,7 +54,8 @@ const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
                     animate="visible"
                     initial="hidden"
                 />
-            </svg>
+            </motion.svg>
+          
             <div>
                 {navigationItems.map((item, index) => (
                     <div
@@ -68,7 +69,7 @@ const Sidebar = ({ input, setInput, submitHandler, toggleMenu }) => {
             </div>
             <div className=" flex gap-10 mt-10">
                 {/* github */}
-                {iconBar.map((item, ) => (
+                {iconBar.map((item) => (
                     <a href={item.link} key={item.id}>
                         <motion.svg
                             height="24"

@@ -28,7 +28,7 @@ const NavigationBar = ({ toggleMenu}) => {
     
     const svgVariants= {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, rotate:360 },
+        visible: { opacity: 1,  },
        
     }
 
@@ -146,6 +146,8 @@ const NavigationBar = ({ toggleMenu}) => {
                         initial="hidden"
                     />
                 </motion.svg>
+
+             
             </div>
         </motion.nav>
     );
