@@ -32,9 +32,9 @@ const AboutSection = () => {
   
     const {about} = aboutSectionText
     return (
-        <motion.div className="mt-10 lg:px-32 px-6 py-10">
+        <motion.div className="mt-10 ">
             <img src={aboutImg} alt="about" className="mb-10" />
-            <div className="flex">
+            <div className="flex justify-between ">
                 <motion.div
                     ref={ref}
                     animate={controls}
@@ -71,23 +71,23 @@ const AboutSection = () => {
                                 variants={{
                                     visible: {
                                         opacity: 1,
-                                        x: 0,
+                                       
                                         // translateY: 0,
                                         transition: {
                                             duration: 1,
                                             ease: "easeInOut",
                                             bounce: 0.1,
                                             delay: index * 0.1,
-                                            type: "spring",
+                                          
                                         },
                                     },
                                     hidden: {
                                         opacity: 0,
                                         // translateY: -50,
-                                        x: "100vw",
+                                     
                                     },
                                 }}
-                                className=""
+                                className=" mb-4"
                             >
                                 <div className="mx-1 my-2">
                                     <PrimaryButton text={item} />
@@ -105,8 +105,7 @@ const AboutSection = () => {
                                 variants={{
                                     visible: {
                                         opacity: 1,
-                                        translateX: 0,
-                                        translateY: 0,
+                                     
                                         transition: {
                                             type: "spring",
                                             duration: 1,
@@ -117,8 +116,7 @@ const AboutSection = () => {
                                     },
                                     hidden: {
                                         opacity: 0,
-                                        translateY: 50,
-                                        translateX: 50,
+                                   
                                     },
                                 }}
                                 className=""

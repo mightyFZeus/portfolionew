@@ -15,7 +15,7 @@ function App() {
     
 
     return (
-        <div className="app ">
+        <div className="app lg:px-16 xl:px-20 px-6 py-10 ">
             <NavigationBar
                 open={open}
                 setOpen={setOpen}
@@ -23,7 +23,7 @@ function App() {
             />
             <div>{open && <MobileNavigation toggleMenu={toggleMenu} />}</div>
             <CallToActionSection />
-          
+
             <AboutSection />
         </div>
     );

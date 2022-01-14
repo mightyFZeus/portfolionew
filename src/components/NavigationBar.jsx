@@ -55,11 +55,11 @@ const NavigationBar = ({ toggleMenu}) => {
             animate="visible"
             initial="hidden"
             variants={navVariants}
-            className="flex justify-between items-center w-full  lg:px-32 px-6 py-10"
+            className="flex justify-between items-center w-full  "
         >
             <img src={logo} alt="logo" className="z-1000" />
 
-            <div className=" hidden lg:flex gap-10 ">
+            <div className=" hidden md:flex gap-10 ">
                 {navigationItems.map((item, index) => (
                     <motion.p
                         key={index}
@@ -89,7 +89,7 @@ const NavigationBar = ({ toggleMenu}) => {
                     </motion.p>
                 ))}
             </div>
-            <div className="hidden lg:flex gap-10">
+            <div className="hidden md:flex gap-10">
                 {iconBar.map((item, index) => (
                     <a
                         href={item.link}
@@ -124,7 +124,7 @@ const NavigationBar = ({ toggleMenu}) => {
             </div>
 
             {/* hamburger menu */}
-            <div className="sm:hidden">
+            <div className="sm:hidden ">
                 <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
