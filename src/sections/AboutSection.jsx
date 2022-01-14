@@ -87,9 +87,9 @@ const AboutSection = () => {
                                      
                                     },
                                 }}
-                                className=" mb-4"
+                                className=" mb-1"
                             >
-                                <div className="mx-1 my-2">
+                                <div className="mx-1 ">
                                     <PrimaryButton text={item} />
                                 </div>
                             </motion.div>
