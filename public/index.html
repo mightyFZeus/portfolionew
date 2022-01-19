@@ -11,6 +11,7 @@
             content="Web site created using create-react-app"
         />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+            <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
 
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
@@ -22,7 +23,7 @@
         <div id="root"></div>
     </body>
   
-    <script>
+    <!-- <script>
         const cursor = document.querySelector(".cursor");
 
         document.addEventListener("mousemove", (e) => {
@@ -38,5 +39,15 @@
                 cursor.classList.remove("expand");
             }, 500);
         });
+    </script> -->
+        <script src="https://unpkg.com/kursor"></script>
+     <script>
+         
+        new kursor({
+            type: 1,
+              removeDefaultCursor: true,
+              color:"#06294A"
+
+        })
     </script>
 </html>
