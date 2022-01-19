@@ -17,10 +17,11 @@ function App() {
 
     return (
 
-        
+
         <div className="app lg:px-16 xl:px-20 px-6 py-10 ">
         
-                <NavigationBar
+            <NavigationBar
+                
                     open={open}
                     setOpen={setOpen}
                     toggleMenu={toggleMenu}
