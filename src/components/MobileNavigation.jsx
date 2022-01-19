@@ -18,7 +18,7 @@ const pathVariants = {
         pathLength: 1,
         scale: 1.2,
         transition: {
-            duration: 1.5,
+            duration: 2,
             ease: "easeInOut",
             delay: 1,
         },
@@ -32,7 +32,6 @@ const Sidebar = ({ toggleMenu }) => {
             animate={{ opacity: 1, x: 0, zIndex: 1000 }}
             initial={{ opacity: 0, x: "-100vw", zIndex: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            exit={{ opacity: 0, x: "100vw", zIndex: 0 }}
             className=" bg-white w-full fixed top-0 left-0 right-0 bottom-0 h-screen px-6 py-10  "
         >
             <motion.svg
@@ -52,10 +51,11 @@ const Sidebar = ({ toggleMenu }) => {
                     strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
                     variants={pathVariants}
-                   
+                    animate="visible"
+                    initial="hidden"
                 />
             </motion.svg>
-
+          
             <div>
                 {navigationItems.map((item, index) => (
                     <div
