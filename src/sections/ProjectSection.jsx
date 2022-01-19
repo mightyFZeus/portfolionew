@@ -20,6 +20,8 @@ const ProjectSection = () => {
     
         const pathVariants = {
             hidden: {
+
+                
                 opacity: 0,
                 pathLength: 0,
             },
