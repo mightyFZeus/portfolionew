@@ -26,6 +26,8 @@ function App() {
                     setOpen={setOpen}
                     toggleMenu={toggleMenu}
                 />
+
+                
                 <div>
                     {open && <MobileNavigation toggleMenu={toggleMenu} />}
                 </div>
