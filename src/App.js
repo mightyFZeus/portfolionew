@@ -1,41 +1,56 @@
-import {useState} from 'react'
+import {useState,  useEffect} from 'react'
 import MobileNavigation from "./components/MobileNavigation";
 
 
 import NavigationBar from "./components/NavigationBar";
-import AboutSection from "./sections/AboutSection";
-import CallToActionSection from "./sections/CallToActionSection";
-import ProjectSection from './sections/ProjectSection';
+
+import {AnimatePresence,} from "framer-motion"
+import { LoaderExample } from './components/Loader';
+import Body from './sections/Body';
+
+
 
 function App() {
-   const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(true)
+
+    
    const toggleMenu = () => {
        setOpen((prevOpen) => !prevOpen);
-   };
+    };
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 10000)
+    }, [])
     
     
 
     return (
-
-
-        <div className="app lg:px-16 xl:px-20 px-6 py-10 ">
-        
-            <NavigationBar
-                
-                    open={open}
-                    setOpen={setOpen}
-                    toggleMenu={toggleMenu}
-                />
-
-                
-                <div>
-                    {open && <MobileNavigation toggleMenu={toggleMenu} />}
-                </div>
-                <CallToActionSection />
-
-                <AboutSection />
-                <ProjectSection />
-   
+        <div className="app  ">
+            <AnimatePresence exitBeforeEnter onExitComplete={() =>setLoading(false)} >
+                {loading && <LoaderExample />}
+            </AnimatePresence>
+            <AnimatePresence exitBeforeEnter >
+            
+                {!loading && (
+                    <>
+                        {" "}
+                        <NavigationBar
+                            open={open}
+                            setOpen={setOpen}
+                            toggleMenu={toggleMenu}
+                        />
+                        <AnimatePresence exitBeforeEnter>
+                            {open && (
+                                <MobileNavigation toggleMenu={toggleMenu} />
+                            )}
+                        </AnimatePresence>
+                      <Body />
+                    </>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion,  } from "framer-motion";
 import { navigationItems, iconBar } from "../utils/constants";
+import { Link } from "react-scroll";
 
 
 const svgVariants = {
@@ -32,8 +33,8 @@ const Sidebar = ({ toggleMenu }) => {
             animate={{ opacity: 1, x: 0, zIndex: 1000 }}
             initial={{ opacity: 0, x: "-100vw", zIndex: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            exit={{ opacity: 0, x: "100vw", zIndex: 0 }}
-            className=" bg-white w-full fixed top-0 left-0 right-0 bottom-0 h-screen px-6 py-10  "
+            exit={{ x: "100vw" }}
+            className=" bg-white w-full fixed top-0 left-0 right-0 bottom-0  px-6 py-10  "
         >
             <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,19 +53,21 @@ const Sidebar = ({ toggleMenu }) => {
                     strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
                     variants={pathVariants}
-                   
                 />
             </motion.svg>
 
             <div>
-                {navigationItems.map((item, index) => (
-                    <div
-                        key={item}
-                        className="text-textBlack my-6 text-xl font-bold  "
+                {navigationItems.map((item,index ) => (
+                     <Link
+                        key={index}
+                        smooth={true}
+                        duration={1000}
+                        to={item.link}
                     >
-                        <p>{item.item}</p>
+                     
+                        <p onClick={toggleMenu} className="text-textBlack my-2 text-xl font-bold  ">{item.item}</p>
                         <hr className="h-2" />
-                    </div>
+                    </Link>
                 ))}
             </div>
             <div className=" flex gap-10 mt-10">

@@ -53,7 +53,7 @@ const AboutSection = () => {
     };
 
     return (
-        <motion.div className="mt-10 ">
+        <motion.div className="mt-10 " id="about">
             <motion.img
                 ref={ref}
                 animate={controls}
@@ -74,7 +74,7 @@ const AboutSection = () => {
                 alt="about"
                 className="mb-10"
             />
-            <div className="flex justify-between ">
+            <div className="flex justify-between lg:px-20 px-6 ">
                 <motion.div
                     ref={ref}
                     animate={controls}
@@ -99,7 +99,7 @@ const AboutSection = () => {
                         <PrimaryButton text="View my Resume" />
                     </div>
                 </motion.div>
-                <div className="hidden md:inline-block">
+                <div className="hidden lg:inline-block">
                     <div className="border-t-4 border-textBlack w-14" />
                     <p className="text-textBlack text-xl mb-4 ">My Stack</p>
                     <div className="flex  ">
@@ -171,7 +171,7 @@ const AboutSection = () => {
                         ref={ref}
                         animate={controls}
                         width="228"
-                        height="500"
+                        height="700"
                         viewBox="0 0 228 1272"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +213,6 @@ const AboutSection = () => {
                     l
                 </div>
             </div>
-        
         </motion.div>
     );
 };

@@ -17,14 +17,55 @@ const variant = {
     },
 };
  
+// const banner = {
+//     animate: {
+//         transition: {
+//             delayChildren: 0.3,
+//             staggerChildren: 0.1,
 
+//         },
+//     },
+// };
+// //  this is the variant that does the text coming from below
+// const letterAni = {
+//     initial: { y: 50, opacity:0 },
+//     animate: {
+//         y: 0,
+//         opacity:1,
+//         transition: {
+           
+//             ease:"easeInOut",
+//             duration: 1,
+//             // yoyo:Infinity
+//         },
+//     },
+// };
 
+// const AnimatedLetters = ({ title, disabled }) => (
+//     <motion.div
+//         className=" flex "
+//         variants={disabled ? null : banner}
+//         initial="initial"
+//         animate="animate"
+//     >
+//         {[...title].map((letter, index) => (
+//             <motion.p
+//                 key={index}
+//                 className="  xl:text-7xl lg:text-5xl text-4xl  font-light"
+//                 variants={disabled ? null : letterAni}
+//             >
+//                 {letter}
+//             </motion.p>
+//         ))}
+//     </motion.div>
+// );
    
 const CallToActionSection = () => {
     const { name, description, role1, role2 } = callToActionText;
     return (
         <div>
-            <motion.div className="lg:mt-40 mt-16  md:flex justify-between ">
+            <motion.div className="md:mt-40 mt-16  md:flex justify-between ">
+                {/* <motion.p className="text-6xl">TEST</motion.p> */}
                 <motion.div>
                     <motion.p
                         animate={{ opacity: 1, transformOrigin: "center" }}
@@ -50,6 +91,7 @@ const CallToActionSection = () => {
                     >
                         {role2}
                     </motion.p>
+            
                     <motion.p
                         initial="hidden"
                         animate="visible"
@@ -75,8 +117,15 @@ const CallToActionSection = () => {
                         </motion.div>
                     </motion.div>
                 </motion.div>
+
                 <div>
-                    <motion.img animate={{opacity:1}} initial={{opacity:0}} transition={{duration:3}} src={guy} alt="guy" />
+                    <motion.img
+                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        transition={{ duration: 3 }}
+                        src={guy}
+                        alt="guy"
+                    />
                 </div>
                 <div></div>
             </motion.div>

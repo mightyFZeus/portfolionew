@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../images/logo.webp";
 import { iconBar, navigationItems } from "../utils/constants";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 
 
@@ -55,38 +56,44 @@ const NavigationBar = ({ toggleMenu}) => {
             animate="visible"
             initial="hidden"
             variants={navVariants}
-            className="flex justify-between items-center w-full  "
+            className="flex justify-between items-center  lg:px-20 px-6   bg-white py-6 shadow-sm -top-6 w-screen fixed z-850 backdrop-filter backdrop-blur-xl bg-opacity-70  "
         >
             <img src={logo} alt="logo" className="z-1000" />
 
             <div className=" hidden md:flex gap-10 ">
                 {navigationItems.map((item, index) => (
-                    <motion.p
+                    <Link
                         key={index}
-                        animate={{ translateX: 0, translateY: 0 }}
-                        initial={{ translateX: -50, translateY: -50 }}
-                        transition={{
-                            duration: 0.8,
-                            delay: index * 0.2,
-                            ease: "easeInOut",
-                        }}
-                        whileHover={{
-                            scale: 1.25,
-                            fontStyle: "italic",
-                            transition: {
-                                ease: "easeIn",
-                                duration: 0.4,
-                            },
-                        }}
-                        className={
-                            active === index
-                                ? "cursor-pointer border-b-4 border-textBlack"
-                                : ""
-                        }
-                        onClick={() => setActive(index)}
+                        smooth={true}
+                        duration={1000}
+                        to={item.link}
                     >
-                        {item.item}
-                    </motion.p>
+                        <motion.p
+                            animate={{ translateX: 0, translateY: 0 }}
+                            initial={{ translateX: -50, translateY: -50 }}
+                            transition={{
+                                duration: 0.8,
+                                delay: index * 0.2,
+                                ease: "easeInOut",
+                            }}
+                            whileHover={{
+                                scale: 1.25,
+                                fontStyle: "italic",
+                                transition: {
+                                    ease: "easeIn",
+                                    duration: 0.4,
+                                },
+                            }}
+                            className={
+                                active === index
+                                    ? "cursor-pointer border-b-4 border-textBlack"
+                                    : ""
+                            }
+                            onClick={() => setActive(index)}
+                        >
+                            {item.item}
+                        </motion.p>
+                    </Link>
                 ))}
             </div>
             <div className="hidden md:flex gap-10">
@@ -146,8 +153,6 @@ const NavigationBar = ({ toggleMenu}) => {
                         initial="hidden"
                     />
                 </motion.svg>
-
-             
             </div>
         </motion.nav>
     );

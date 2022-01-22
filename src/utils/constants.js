@@ -2,17 +2,17 @@ export const navigationItems = [
   
     {
         id: 1,
-        link: "",
+        link: "about",
         item:"About"
     },
     {
         id: 2,
-        link: "",
+        link: "projects",
         item:"Projects"
     },
     {
         id: 3,
-        link: "",
+        link: "contact",
         item:"Contact"
     },
 ]
