@@ -66,7 +66,7 @@ export const aboutSectionText = {
     },
 
     {
-        id: 3,
+        id: 2,
         title: "Crypto Tracker",
         image: "",
         link: "https://crypto-appb.netlify.app/",
@@ -75,7 +75,7 @@ export const aboutSectionText = {
 
     },
     {
-        id: 4,
+        id: 3,
         title: "Image Finder",
         image: "",
         link: "https://bluecodeb.netlify.app/",
@@ -84,11 +84,20 @@ export const aboutSectionText = {
 
     },
     {
-        id: 5,
+        id: 4,
         title: "Portfolio",
         image: "",
         link: "https://bolarin-olabisi.vercel.app/",
         git: "https://github.com/mightyFZeus/portfolionew",
+        desc: "I have experience in building highly performant and scalable mobile and web based applications. I am highly  in frontend engineering and performance optimization. I love building application that are not just functional, but delivers a great experience to the user",
+
+    },
+     {
+        id: 5,
+        title: "Flirty Flowers",
+        image: "",
+        link: "https://flirtyflowers.netlify.app/",
+        git: "https://github.com/mightyFZeus/flower",
         desc: "I have experience in building highly performant and scalable mobile and web based applications. I am highly  in frontend engineering and performance optimization. I love building application that are not just functional, but delivers a great experience to the user",
 
     },
